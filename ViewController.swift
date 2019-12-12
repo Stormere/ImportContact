@@ -33,12 +33,14 @@ class ViewController: UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
     @IBAction func writeConfig(_ sender: UIButton) {
-        UserDefaults.init().set(offset, forKey: kOffset)
-        
+        if offsetTextField.text != nil {
+           offset = Int(offsetTextField.text!) ?? offset
+        }
+        UserDefaults.init().set(offset, forKey: kOffset)        
         if countTextField.text != nil {
            count = Int(countTextField.text!) ?? count
         }
-        UserDefaults.init().set(offset, forKey: kCount)
+        UserDefaults.init().set(count, forKey: kCount)
 
     }
     /**
